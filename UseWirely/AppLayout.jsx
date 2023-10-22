@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import { COLORS } from './colors';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -24,7 +25,6 @@ const pageRoutes = [
 function TabNavigator() {
     return (
         <Tab.Navigator
-            styles={styles.nav}
             screenOptions={{
                 tabBarActiveTintColor: 'green',
                 tabBarInactiveTintColor: 'gray',
@@ -80,10 +80,6 @@ function AppLayout() {
 const styles = StyleSheet.create({
     container: {
       backgroundColor: COLORS.beige,
-    },
-
-    nav: {
-        t
     }
 });
 

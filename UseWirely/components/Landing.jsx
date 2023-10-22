@@ -11,25 +11,7 @@ const urls = [
     'https://i.imgflip.com/4m9hrb.jpg',
     'https://i.pinimg.com/474x/cd/2b/7c/cd2b7c394500ca079d80984ae108a4b4.jpg',
     'https://www.mememaker.net/static/images/memes/4841868.jpg',
-    'https://i.chzbgr.com/full/9653439488/h21B34B56/good-job',
-    'https://imgflip.com/s/meme/Smiling-Cat.jpg',
-    'https://cdn.shopify.com/s/files/1/0555/1656/1573/files/2_d24748e8-2a9e-428d-8cb5-be91b011a6d3_480x480.jpg?v=1650642920',
-    'https://media.makeameme.org/created/congrats-on-your-a36cdd163c.jpg',
-    'https://i.imgflip.com/4m9hrb.jpg',
-    'https://i.pinimg.com/474x/cd/2b/7c/cd2b7c394500ca079d80984ae108a4b4.jpg',
-    'https://www.mememaker.net/static/images/memes/4841868.jpg',    'https://i.chzbgr.com/full/9653439488/h21B34B56/good-job',
-    'https://imgflip.com/s/meme/Smiling-Cat.jpg',
-    'https://cdn.shopify.com/s/files/1/0555/1656/1573/files/2_d24748e8-2a9e-428d-8cb5-be91b011a6d3_480x480.jpg?v=1650642920',
-    'https://media.makeameme.org/created/congrats-on-your-a36cdd163c.jpg',
-    'https://i.imgflip.com/4m9hrb.jpg',
-    'https://i.pinimg.com/474x/cd/2b/7c/cd2b7c394500ca079d80984ae108a4b4.jpg',
-    'https://www.mememaker.net/static/images/memes/4841868.jpg',    'https://i.chzbgr.com/full/9653439488/h21B34B56/good-job',
-    'https://imgflip.com/s/meme/Smiling-Cat.jpg',
-    'https://cdn.shopify.com/s/files/1/0555/1656/1573/files/2_d24748e8-2a9e-428d-8cb5-be91b011a6d3_480x480.jpg?v=1650642920',
-    'https://media.makeameme.org/created/congrats-on-your-a36cdd163c.jpg',
-    'https://i.imgflip.com/4m9hrb.jpg',
-    'https://i.pinimg.com/474x/cd/2b/7c/cd2b7c394500ca079d80984ae108a4b4.jpg',
-    'https://www.mememaker.net/static/images/memes/4841868.jpg',
+    'https://i.pinimg.com/736x/67/b2/75/67b2750d58f7fa5257b98450b5ac879b.jpg'
 ];
 
 function Landing({ navigation, route }) {
@@ -41,9 +23,9 @@ function Landing({ navigation, route }) {
       return urls[randomIndex];
   }
 
-  // useFocusEffect(() => {
-  //     setUrl(getRandomUrl(urls));
-  // });
+  useFocusEffect(() => {
+      setUrl(getRandomUrl(urls));
+  });
 
   useEffect(() => {
       if (route.params?.notificationData) {

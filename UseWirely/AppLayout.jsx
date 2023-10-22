@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import { COLORS } from './colors';
+import { StyleSheet } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesome, Ionicons} from '@expo/vector-icons';
@@ -8,6 +8,7 @@ import { FontAwesome, Ionicons} from '@expo/vector-icons';
 //components
 import Landing from './components/Landing';
 import Setting from './components/Setting';
+import ReminderForm from './components/ReminderForm';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -16,7 +17,8 @@ const iconSize = 24;
 
 const navigatorRoutes = [
     { name: "Landing", component: Landing, icon: <FontAwesome name='home' size={iconSize} /> },
-    { name: "Setting", component: Setting, icon: <Ionicons name='settings' size={iconSize} /> },
+    // { name: "Setting", component: Setting, icon: <Ionicons name='settings' size={iconSize} /> },
+    { name: "Reminder", component: ReminderForm, icon: <Ionicons name='settings' size={iconSize} />}
 ]
 
 const pageRoutes = [
@@ -76,12 +78,12 @@ function TabNavigator() {
 
 function AppLayout() {
     return (
-        <Stack.Navigator initialRouteName="Home" >
+        <Stack.Navigator initialRouteName="Home">
             <Stack.Screen
                 name="App"
                 component={TabNavigator}
                 options={{
-                    headerShown: false
+                    headerShown: false,
                 }}
             />
         </Stack.Navigator>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { COLORS } from './colors';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesome, Ionicons} from '@expo/vector-icons';
@@ -23,6 +24,7 @@ const pageRoutes = [
 function TabNavigator() {
     return (
         <Tab.Navigator
+            styles={styles.nav}
             screenOptions={{
                 tabBarActiveTintColor: 'green',
                 tabBarInactiveTintColor: 'gray',
@@ -62,16 +64,27 @@ function TabNavigator() {
 
 function AppLayout() {
     return (
-        <Stack.Navigator initialRouteName="Home">
+        <Stack.Navigator initialRouteName="Home" >
             <Stack.Screen
                 name="App"
                 component={TabNavigator}
+                styles = {styles.container}
                 options={{
-                    // header: () => <Header />, // Add your custom header component
+                    headerShown: false
                 }}
             />
         </Stack.Navigator>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+      backgroundColor: COLORS.beige,
+    },
+
+    nav: {
+        t
+    }
+});
 
 export default AppLayout;

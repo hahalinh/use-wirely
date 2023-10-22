@@ -50,8 +50,8 @@ function Landing({navigation}) {
       fontSize: 24,
     },
   
-    address: {
-  
+    titleContainer: {
+      backgroundColor: COLORS.green,
     },
   
     utilityContainer: {

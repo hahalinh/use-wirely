@@ -1,5 +1,6 @@
 import React from 'react';
 import { COLORS } from './colors';
+import { StyleSheet} from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesome, Ionicons} from '@expo/vector-icons';
@@ -24,8 +25,7 @@ const pageRoutes = [
 function TabNavigator() {
     return (
         <Tab.Navigator
-            styles={styles.nav}
-            screenOptions={{
+        screenOptions={{
                 tabBarActiveTintColor: 'green',
                 tabBarInactiveTintColor: 'gray',
             }}
@@ -68,7 +68,7 @@ function AppLayout() {
             <Stack.Screen
                 name="App"
                 component={TabNavigator}
-                styles = {styles.container}
+                style = {styles.container}
                 options={{
                     headerShown: false
                 }}
@@ -79,12 +79,8 @@ function AppLayout() {
 
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: COLORS.beige,
+      backgroundColor: COLORS.green,
     },
-
-    nav: {
-        t
-    }
 });
 
 export default AppLayout;

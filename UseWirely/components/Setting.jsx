@@ -12,23 +12,13 @@ function Setting() {
   );
 }
 
-  const styles = StyleSheet.create({
-    container: {
-      backgroundColor: COLORS.beige,
-      display: 'flex',
-      flexDirection: 'column-reverse'
-    },
-  
-    title: {
-      // fontFamily: 'Sofia Pro',
-      fontWeight: 'bold',
-      fontSize: 24,
-    },
-  
-    utilityContainer: {
-      display: 'flex',
-      flexDirection: 'row',
-    }
-  });
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: COLORS.beige,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 
 export default Setting;

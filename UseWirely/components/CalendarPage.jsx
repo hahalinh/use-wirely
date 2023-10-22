@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { Image } from 'react-native';
 
 const daysOfWeek = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 
@@ -19,6 +20,7 @@ export default function CalendarPage({ month, year }) {
 
     return (
         <View style={styles.container}>
+            
             {daysOfWeek.map(day => (
                 <Text key={day} style={styles.dayHeader}>
                     {day}
@@ -34,6 +36,10 @@ export default function CalendarPage({ month, year }) {
                     )}
                 </View>
             ))}
+            
+            <Text style={styles.titleText}>Record of electricity saving!!</Text>
+            <Image source={{ uri: 'https://pbs.twimg.com/media/ES6-7GXXkAEgxg0.png' }} style={styles.memeStyle} />
+
         </View>
     );
 }
@@ -44,13 +50,26 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 90,
+        paddingTop: 90,
+    },
+    titleText: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginTop: 40,         // Space below the title
+        textAlign: 'center',      // Center-align the text
+        color: '#9999FF'
     },
     dayHeader: {
         width: '14%', 
         textAlign: 'center',
         fontWeight: 'bold',
         padding: 5,
+    },
+    memeStyle: {
+        width: 300,  
+        height: 300,
+        alignSelf: 'center',
+        marginTop: 20,
     },
     dayContainer: {
         width: '14.28%',

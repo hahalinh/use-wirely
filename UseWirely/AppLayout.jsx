@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { COLORS } from './colors';
+import { StyleSheet} from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesome, Ionicons} from '@expo/vector-icons';
@@ -15,7 +16,7 @@ const Tab = createBottomTabNavigator();
 const iconSize = 24;
 
 const navigatorRoutes = [
-    { name: "Landing", component: Landing, icon: <FontAwesome name='home' sizex={iconSize} /> },
+    { name: "Landing", component: Landing, icon: <FontAwesome name='home' size={iconSize} /> },
     { name: "Setting", component: Setting, icon: <Ionicons name='settings' size={iconSize} /> },
 ]
 
@@ -25,9 +26,21 @@ const pageRoutes = [
 function TabNavigator() {
     return (
         <Tab.Navigator
-            screenOptions={{
-                tabBarActiveTintColor: 'green',
-                tabBarInactiveTintColor: 'gray',
+        screenOptions={{
+                tabBarActiveTintColor: COLORS.darkgreen,
+                tabBarInactiveTintColor: COLORS.beige,
+                tabBarStyle: {
+                    height: 60,
+                    width:'95%',
+                    paddingHorizontal: 5,
+                    borderRadius: 20,
+                    paddingTop: 10,
+                    paddingBottom: 10,
+                    bottom:'1.4%',
+                    left:' 2%',
+                    backgroundColor: COLORS.green,
+                    position: 'absolute',
+                },
             }}
         >
             {navigatorRoutes.map((item, index) => {
@@ -68,7 +81,6 @@ function AppLayout() {
             <Stack.Screen
                 name="App"
                 component={TabNavigator}
-                styles = {styles.container}
                 options={{
                     headerShown: false
                 }}
@@ -79,8 +91,8 @@ function AppLayout() {
 
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: COLORS.beige,
-    }
+      backgroundColor: COLORS.green,
+    },
 });
 
 export default AppLayout;

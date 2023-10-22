@@ -8,6 +8,7 @@ import { FontAwesome, Ionicons} from '@expo/vector-icons';
 //components
 import Landing from './components/Landing';
 import Setting from './components/Setting';
+import CalendarPage from './components/CalendarPage';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -17,6 +18,7 @@ const iconSize = 24;
 const navigatorRoutes = [
     { name: "Landing", component: Landing, icon: <FontAwesome name='home' sizex={iconSize} /> },
     { name: "Setting", component: Setting, icon: <Ionicons name='settings' size={iconSize} /> },
+    { name: "CalendarPage", component: (props) => <CalendarPage {...props} month={9} year={2023} />, icon: <Ionicons name='calendar' size={iconSize} /> },    
 ]
 
 const pageRoutes = [

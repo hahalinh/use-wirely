@@ -1,14 +1,19 @@
 import React from 'react';
 import { COLORS } from './colors';
-import { StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesome, Ionicons} from '@expo/vector-icons';
 
 //components
 import Landing from './components/Landing';
-import Setting from './components/Setting';
+// import Setting from './components/Setting';
 import CalendarPage from './components/CalendarPage';
+import ReminderForm from './components/ReminderForm';
+
+function CalendarPageWrapper(props) {
+    return <CalendarPage {...props} month={9} year={2023} />;
+  }
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -16,10 +21,16 @@ const Tab = createBottomTabNavigator();
 const iconSize = 24;
 
 const navigatorRoutes = [
-    { name: "Landing", component: Landing, icon: <FontAwesome name='home' sizex={iconSize} /> },
-    { name: "Setting", component: Setting, icon: <Ionicons name='settings' size={iconSize} /> },
-    { name: "CalendarPage", component: (props) => <CalendarPage {...props} month={9} year={2023} />, icon: <Ionicons name='calendar' size={iconSize} /> },    
-]
+    // { name: "Setting", component: Setting, icon: <Ionicons name='settings' size={iconSize} /> },   
+    { name: "Landing", component: Landing, icon: <FontAwesome name='home' size={iconSize} /> },
+    // { name: "Setting", component: Setting, icon: <Ionicons name='settings' size={iconSize} /> },
+    { name: "Reminder", component: ReminderForm, icon: <Ionicons name='settings' size={iconSize} />},
+    {
+        name: "CalendarPage",
+        component: CalendarPageWrapper,
+        icon: <Ionicons name='calendar' size={iconSize} />
+      }
+    ]
 
 const pageRoutes = [
 ]
@@ -28,8 +39,20 @@ function TabNavigator() {
     return (
         <Tab.Navigator
         screenOptions={{
-                tabBarActiveTintColor: 'green',
-                tabBarInactiveTintColor: 'gray',
+                tabBarActiveTintColor: COLORS.darkgreen,
+                tabBarInactiveTintColor: COLORS.beige,
+                tabBarStyle: {
+                    height: 60,
+                    width:'95%',
+                    paddingHorizontal: 5,
+                    borderRadius: 20,
+                    paddingTop: 10,
+                    paddingBottom: 10,
+                    bottom:'1.4%',
+                    left:' 2%',
+                    backgroundColor: COLORS.green,
+                    position: 'absolute',
+                },
             }}
         >
             {navigatorRoutes.map((item, index) => {
@@ -66,13 +89,12 @@ function TabNavigator() {
 
 function AppLayout() {
     return (
-        <Stack.Navigator initialRouteName="Home" >
+        <Stack.Navigator initialRouteName="Home">
             <Stack.Screen
                 name="App"
                 component={TabNavigator}
-                style = {styles.container}
                 options={{
-                    headerShown: false
+                    headerShown: false,
                 }}
             />
         </Stack.Navigator>

@@ -1,10 +1,11 @@
 import React from 'react';
+import {COLORS} from '../colors';
 import { View, Text, StyleSheet } from 'react-native';
 import { Image } from 'react-native';
 
 const daysOfWeek = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 
-export default function CalendarPage({ month, year }) {
+function CalendarPage({ month, year }) {
     const daysInMonth = new Date(year, month, 0).getDate();
     const startDay = new Date(year, month - 1, 1).getDay();
 
@@ -46,6 +47,8 @@ export default function CalendarPage({ month, year }) {
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
+        backgroundColor: COLORS.beige,
         flexDirection: 'row',
         flexWrap: 'wrap',
         alignItems: 'center',
@@ -57,7 +60,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginTop: 40,         // Space below the title
         textAlign: 'center',      // Center-align the text
-        color: '#9999FF'
+        color: COLORS.darkpink
     },
     dayHeader: {
         width: '14%', 
@@ -68,6 +71,7 @@ const styles = StyleSheet.create({
     memeStyle: {
         width: 300,  
         height: 300,
+        borderRadius: 20,
         alignSelf: 'center',
         marginTop: 20,
     },
@@ -85,5 +89,5 @@ const styles = StyleSheet.create({
     },
 });
 
-
+export default CalendarPage;
 

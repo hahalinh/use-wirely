@@ -15,7 +15,7 @@ const Tab = createBottomTabNavigator();
 const iconSize = 24;
 
 const navigatorRoutes = [
-    { name: "Landing", component: Landing, icon: <FontAwesome name='home' sizex={iconSize} /> },
+    { name: "Landing", component: Landing, icon: <FontAwesome name='home' size={iconSize} /> },
     { name: "Setting", component: Setting, icon: <Ionicons name='settings' size={iconSize} /> },
 ]
 
@@ -26,8 +26,20 @@ function TabNavigator() {
     return (
         <Tab.Navigator
         screenOptions={{
-                tabBarActiveTintColor: 'green',
-                tabBarInactiveTintColor: 'gray',
+                tabBarActiveTintColor: COLORS.darkgreen,
+                tabBarInactiveTintColor: COLORS.beige,
+                tabBarStyle: {
+                    height: 60,
+                    width:'95%',
+                    paddingHorizontal: 5,
+                    borderRadius: 20,
+                    paddingTop: 10,
+                    paddingBottom: 10,
+                    bottom:'1.4%',
+                    left:' 2%',
+                    backgroundColor: COLORS.green,
+                    position: 'absolute',
+                },
             }}
         >
             {navigatorRoutes.map((item, index) => {
@@ -68,7 +80,6 @@ function AppLayout() {
             <Stack.Screen
                 name="App"
                 component={TabNavigator}
-                style = {styles.container}
                 options={{
                     headerShown: false
                 }}

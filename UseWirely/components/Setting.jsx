@@ -24,10 +24,6 @@ function Setting({navigation}) {
       fontSize: 24,
     },
   
-    address: {
-  
-    },
-  
     utilityContainer: {
       display: 'flex',
       flexDirection: 'row',
